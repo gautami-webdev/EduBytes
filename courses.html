@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBytes Courses</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+    box-shadow: 2px 2px 10px rgb(35, 35, 85);
+
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .courses-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .course {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #e3f2fd;
+            transition: transform 0.3s;
+        }
+        .course:hover {
+            transform: scale(1.02);
+        }
+        .course h2 {
+            color: #004080;
+        }
+        .enroll, .buy {
+            padding: 12px 20px;
+            background: #ff6b00;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .enroll:hover, .buy:hover {
+            background: #e65a00;
+        }
+        .form-popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .form-popup h2 {
+            text-align: center;
+            color: #004080;
+        }
+        .form-popup input, .form-popup select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-popup button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-popup button:hover {
+            background: #002d5a;
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .course-details {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #004080;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #004080;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">EduBytes</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="courses-container">
+        <h1>Our Courses</h1>
+        <div class="course"><h2>Programming</h2><button class="enroll" onclick="openForm('Programming', '3700')">Enroll Now</button></div>
+        <div class="course"><h2>Web Development</h2><button class="enroll" onclick="openForm('Web Development', '3700')">Enroll Now</button></div>
+        <div class="course"><h2>Cyber Security & Ethical Hacking</h2><button class="enroll" onclick="openForm('Cyber Security & Ethical Hacking', '4500')">Enroll Now</button></div>
+        <div class="course"><h2>UX/UI Design</h2><button class="enroll" onclick="openForm('UX/UI Design', '4700')">Enroll Now</button></div>
+        <div class="course"><h2>Artificial Intelligence</h2><button class="enroll" onclick="openForm('Artificial Intelligence', '5500')">Enroll Now</button></div>
+        <div class="course"><h2>Blockchain Development</h2><button class="enroll" onclick="openForm('Blockchain Development', '4500')">Enroll Now</button></div>
+    </div>
+    
+    <div class="form-popup" id="enrollForm">
+        <h2>Enroll Now</h2>
+        <p class="course-details" id="selectedCourse"></p>
+        <label>Name:</label>
+        <input type="text" placeholder="Enter your name" required>
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email" required>
+        <button onclick="showPayment()">Submit</button>
+        <button class="close-btn" onclick="closeForm()">Close</button>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 EduBytes. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function openForm(course, price) {
+            document.getElementById("enrollForm").style.display = "block";
+            document.getElementById("selectedCourse").innerText = course + " - Rs. " + price;
+        }
+        function closeForm() {
+            document.getElementById("enrollForm").style.display = "none";
+        }
+        function showPayment() {
+            window.location.href = "payment.html";
+        }
+    </script>
+</body>
+</html>

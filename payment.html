@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - EduBytes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .payment-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #004080;
+            margin-bottom: 20px;
+        }
+        .input-field, .payment-methods {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .pay-btn {
+            width: 100%;
+            padding: 12px;
+            background: #ff6b00;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .pay-btn:hover {
+            background: #e65a00;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-between;
+        }
+        .payment-methods button {
+            flex: 1;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            background: #004080;
+            color: white;
+        }
+        .payment-methods button:hover {
+            background: #002d5a;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Complete Your Payment</h2>
+        
+        <input type="text" class="input-field" placeholder="Cardholder Name" required>
+        <input type="text" class="input-field" placeholder="Card Number" required>
+        <input type="text" class="input-field" placeholder="Expiry Date (MM/YY)" required>
+        <input type="text" class="input-field" placeholder="CVV" required>
+        
+        <h3>Or choose a payment method</h3>
+        <div class="payment-methods">
+            <button onclick="selectPayment('UPI')">UPI</button>
+            <button onclick="selectPayment('Net Banking')">Net Banking</button>
+            <button onclick="selectPayment('PayPal')">PayPal</button>
+        </div>
+        
+        <button class="pay-btn" onclick="processPayment()">Pay Now</button>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        document.getElementById("course-name").innerText = getQueryParam("course") || "Unknown";
+        document.getElementById("course-price").innerText = "Rs. " + (getQueryParam("price") || "0");
+        
+        function selectPayment(method) {
+            alert("Selected payment method: " + method);
+        }
+        
+        function processPayment() {
+            alert("Payment successful! Thank you for purchasing the course.");
+            window.location.href = "courses.html";
+        }
+    </script>
+</body>
+</html>
