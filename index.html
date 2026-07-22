@@ -8,30 +8,41 @@
 
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"> -->
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo.png">
+
   <link rel="stylesheet" href="style.css">
 
   <script src="script.js"></script>
 
+
 </head>
+<!-- <img src="images/graduate.png"> -->
 
 <body>
-<header>
-  <nav>
-    <div>
-      <!-- <img src="images/graduate.png"> -->
-            <div class="logo">EduBytes</div>
-    </div>
-    <div class="navigation">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+  <header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold m-3" href="#">EduBytes</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          ☰
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link " href="courses.html">Courses</a></li>
+            <li class="nav-item"><a class="nav-link " href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link " href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link " href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
   <!-- home  -->
 
   <section id="home">
@@ -39,37 +50,11 @@
     <p> Education is the passport to the future, for tomorrow belongs to those who prepare for it today. A better
       learning future starts here.</p>
 
-    <div class="two-button" >
+    <div class="two-button">
       <a class="blue" href="blog.html">Learn More</a>
       <a class="yellow" href="courses.html">Visit Courses</a>
     </div>
   </section>
-
-  <!-- features  -->
-
-  <!-- <section id="features">
-    <h1>Amazing Features</h1>
-    <p>Education makes a door to bright future</p>
-    <div class="feature-base">
-      <div class="feature-box">
-        <div class="icons">
-          <i class="fa-duotone fa-solid fa-graduation-cap"></i>
-      </div>
-        <h3>Scholarship Facility</h3>
-        <p>our institution provides scholarship program to make your education easy.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Sell Online Courses</h3>
-        <p>our institution provides scholarship program to make your education easy.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Global Certificate</h3>
-        <p>our institution provides scholarship program to make your education easy.</p>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- courses  -->
 
   <section id="course">
     <h1>Our Popular Courses</h1>
@@ -79,7 +64,7 @@
       <div class="courses">
         <img src="images/AI.jpg" alt="">
         <div class="details">
-          <span>Updated 20/03/25</span>
+          <span>Updated 20/03/26</span>
           <h6>Artificial Intelligence</h6>
         </div>
         <div class="cost">
@@ -90,7 +75,7 @@
       <div class="courses">
         <img src="images/web develpment.jpg" alt="">
         <div class="details">
-          <span>Updated 20/03/25</span>
+          <span>Updated 20/03/26</span>
           <h6>Web Development</h6>
         </div>
         <div class="cost">
@@ -101,7 +86,7 @@
       <div class="courses">
         <img src="images/robot.jpg" alt="">
         <div class="details">
-          <span>Updated 20/03/25</span>
+          <span>Updated 20/03/26</span>
           <h6>Machine Learning</h6>
         </div>
         <div class="cost">
@@ -112,7 +97,7 @@
       <div class="courses">
         <img src="images/hacking.jpg" alt="">
         <div class="details">
-          <span>Updated 20/03/25</span>
+          <span>Updated 20/03/26</span>
           <h6>Ethical Hacking</h6>
         </div>
         <div class="cost">
@@ -123,7 +108,7 @@
       <div class="courses">
         <img src="images/ui.png" alt="">
         <div class="details">
-          <span>Updated 20/03/25</span>
+          <span>Updated 20/03/26</span>
           <h6>UX/UI Desing</h6>
         </div>
         <div class="cost">
@@ -137,105 +122,104 @@
 
   <section id="registration">
     <div class="reminder">
-        <p>Get 3 Online Courses for free</p>
-        <h1>Register Now</h1>
-        <div class="time">
-            <div class="date">11 <br> Days</div>
-            <div class="date">14 <br> Hours</div>
-            <div class="date">08 <br> Minutes</div>
-            <div class="date">58 <br> Seconds</div>
-        </div>
+      <p>Get 1 Online Course for free</p>
+      <h1>Register Now</h1>
+      <div class="time">
+        <div class="date">11 <br> Days</div>
+        <div class="date">14 <br> Hours</div>
+        <div class="date">08 <br> Minutes</div>
+        <div class="date">58 <br> Seconds</div>
+      </div>
     </div>
-    
+
     <form class="form" id="registrationForm">
-        <h3>Create Free Account Now!</h3>
-        <input type="text" placeholder="Name" name="name" id="name">
-        <input type="email" placeholder="Email Address" name="email" id="email">
-        <input type="text" placeholder="Phone Number" name="phone" id="phone">
+      <h3>Create Free Account Now!</h3>
+      <input type="text" placeholder="Name" name="name" id="name">
+      <input type="email" placeholder="Email Address" name="email" id="email">
+      <input type="text" placeholder="Phone Number" name="phone" id="phone">
 
-        <!-- Success & Error Messages placed just above the submit button -->
-        <div id="successMessage" style="display: none; color: green; margin-top: 10px; font-weight: bold;">
-            ✅ Thank you for registering! We'll get back to you soon.
-        </div>
-        <div id="errorMessage" style="display: none; color: red; margin-top: 10px; font-weight: bold;">
-            ❌ An error occurred. Please try again.
-        </div>
+      <!-- Success & Error Messages placed just above the submit button -->
+      <div id="successMessage" style="display: none; color: green; margin-top: 10px; font-weight: bold;">
+        ✅ Thank you for registering! We'll get back to you soon.
+      </div>
+      <div id="errorMessage" style="display: none; color: red; margin-top: 10px; font-weight: bold;">
+        ❌ An error occurred. Please try again.
+      </div>
 
-        <div class="btn">
-            <button type="submit" class="button">Submit Form</button>
-        </div>
+      <div class="btn">
+        <button type="submit" class="button">Submit Form</button>
+      </div>
     </form>
-</section>
+  </section>
 
-<script>
+  <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Countdown Timer
-    function startCountdown(durationInSeconds) {
-        const timerElements = document.querySelectorAll(".date");
 
-        function updateTimer() {
-            let days = Math.floor(durationInSeconds / (60 * 60 * 24));
-            let hours = Math.floor((durationInSeconds % (60 * 60 * 24)) / (60 * 60));
-            let minutes = Math.floor((durationInSeconds % (60 * 60)) / 60);
-            let seconds = durationInSeconds % 60;
+    document.getElementById("registrationForm").addEventListener("submit", async function (event) {
 
-            timerElements[0].innerHTML = `${days} <br> Days`;
-            timerElements[1].innerHTML = `${hours} <br> Hours`;
-            timerElements[2].innerHTML = `${minutes} <br> Minutes`;
-            timerElements[3].innerHTML = `${seconds} <br> Seconds`;
+        event.preventDefault();
 
-            if (durationInSeconds > 0) {
-                durationInSeconds--;
-                setTimeout(updateTimer, 1000);
-            } else {
-                document.querySelector(".reminder p").innerText = "Offer Expired!";
-            }
-        }
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
 
-        updateTimer();
-    }
+        const successMessage = document.getElementById("successMessage");
+        const errorMessage = document.getElementById("errorMessage");
 
-    // Start Countdown (11 Days, 14 Hours, 8 Minutes, 58 Seconds)
-    const countdownDuration = 11 * 86400 + 14 * 3600 + 8 * 60 + 58;
-    startCountdown(countdownDuration);
-
-    // Form Validation and Submission
-    document.getElementById("registrationForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
-
-        let name = document.getElementById("name").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let phone = document.getElementById("phone").value.trim();
-        let successMessage = document.getElementById("successMessage");
-        let errorMessage = document.getElementById("errorMessage");
-
-        // Hide messages before validation
         successMessage.style.display = "none";
         errorMessage.style.display = "none";
 
-        if (name === "" || email === "" || phone === "") {
-            errorMessage.innerText = "❌ Please fill in all fields.";
+        if (!name || !email || !phone) {
+            errorMessage.innerText = "Please fill all fields.";
             errorMessage.style.display = "block";
             return;
         }
 
-        // Email Validation
-        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            errorMessage.innerText = "❌ Please enter a valid email address.";
+        try {
+
+            const response = await fetch("http://localhost:3000/api/users/register", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone
+                })
+
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+
+                successMessage.innerText = data.message;
+                successMessage.style.display = "block";
+
+                document.getElementById("registrationForm").reset();
+
+            } else {
+
+                errorMessage.innerText = data.message;
+                errorMessage.style.display = "block";
+
+            }
+
+        } catch (error) {
+
+            errorMessage.innerText = "Unable to connect to server.";
             errorMessage.style.display = "block";
-            return;
+
         }
 
-        // Show Success Message
-        successMessage.style.display = "block";
-
-        // Clear Form Fields
-        document.getElementById("registrationForm").reset();
     });
+
 });
 </script>
-
 
 
   <!-- profiles  -->
@@ -274,6 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
