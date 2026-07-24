@@ -153,7 +153,39 @@
   </section>
 
   <script>
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
+
+    // ---------------- Countdown Timer ----------------
+
+    function startCountdown(durationInSeconds) {
+        const timerElements = document.querySelectorAll(".date");
+
+        function updateTimer() {
+            let days = Math.floor(durationInSeconds / (60 * 60 * 24));
+            let hours = Math.floor((durationInSeconds % (60 * 60 * 24)) / (60 * 60));
+            let minutes = Math.floor((durationInSeconds % (60 * 60)) / 60);
+            let seconds = durationInSeconds % 60;
+
+            timerElements[0].innerHTML = `${days} <br> Days`;
+            timerElements[1].innerHTML = `${hours} <br> Hours`;
+            timerElements[2].innerHTML = `${minutes} <br> Minutes`;
+            timerElements[3].innerHTML = `${seconds} <br> Seconds`;
+
+            if (durationInSeconds > 0) {
+                durationInSeconds--;
+                setTimeout(updateTimer, 1000);
+            } else {
+                document.querySelector(".reminder p").innerText = "Offer Expired!";
+            }
+        }
+
+        updateTimer();
+    }
+
+    const countdownDuration = 11 * 86400 + 14 * 3600 + 8 * 60 + 58;
+    startCountdown(countdownDuration);
+
+    // ---------------- Registration Form ----------------
 
     document.getElementById("registrationForm").addEventListener("submit", async function (event) {
 
@@ -178,42 +210,31 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
 
             const response = await fetch("http://localhost:3000/api/users/register", {
-
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
                     name,
                     email,
                     phone
                 })
-
             });
 
             const data = await response.json();
 
             if (data.success) {
-
                 successMessage.innerText = data.message;
                 successMessage.style.display = "block";
-
                 document.getElementById("registrationForm").reset();
-
             } else {
-
                 errorMessage.innerText = data.message;
                 errorMessage.style.display = "block";
-
             }
 
         } catch (error) {
-
             errorMessage.innerText = "Unable to connect to server.";
             errorMessage.style.display = "block";
-
         }
 
     });
