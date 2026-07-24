@@ -172,37 +172,62 @@
     </div>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+       document.getElementById("contactForm").addEventListener("submit", async function (event) {
 
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
+    event.preventDefault();
 
-            const nameVal = name.value.trim();
-            const emailVal = email.value.trim();
-            const messageVal = message.value.trim();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-            // Basic email pattern check
-            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
 
-            if (nameVal && emailVal && emailPattern.test(emailVal) && messageVal) {
-                successMessage.style.display = 'block';
-                errorMessage.style.display = 'none';
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
 
-                // Simulate message send
-                setTimeout(() => {
-                    successMessage.innerText = "Thank you for contacting me! I'll get back to you soon.";
-                    document.getElementById('contactForm').reset();
-                }, 500);
-            } else {
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'block';
-                errorMessage.innerText = 'Please fill out all fields correctly.';
-            }
+    try {
+
+        const response = await fetch("http://localhost:3000/api/contact/contact", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                name,
+                email,
+                message
+            })
+
         });
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            successMessage.innerText = data.message;
+            successMessage.style.display = "block";
+
+            document.getElementById("contactForm").reset();
+
+        } else {
+
+            errorMessage.innerText = data.message;
+            errorMessage.style.display = "block";
+
+        }
+
+    } catch (error) {
+
+        errorMessage.innerText = "Unable to connect to server.";
+        errorMessage.style.display = "block";
+
+    }
+
+});
     </script>
 </body>
 
